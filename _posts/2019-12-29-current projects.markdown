@@ -2,7 +2,7 @@
 layout: post
 title:  "My current projects at work & at home"
 date:   2019-12-29 14:32:08 +0100
-categories: jekyll update
+tags: networking systems
 ---
 # Implementing FreeIPA at work
 We have about 40 VMs, running for the majority CentOS 7, to host our voice application, web servers, billing services, security mechanisms, & more... But we are lacking a central authentication service, and thus are using many local user and root accounts for each VM. Which is definitely a pain to manage and could introduce security concerns. I'd like to implement an *Identity Management* server to centralize those accounts, implement MFA, and give more granular *nix permissions for service accounts.
