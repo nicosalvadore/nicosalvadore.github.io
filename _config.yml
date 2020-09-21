@@ -30,11 +30,7 @@ twitter_username: nicosalvadore
 github_username:  nicosalvadore
 
 # Build settings
-<<<<<<< HEAD
 theme: jekyll-theme-cayman
-=======
-theme: jekyll-theme-cayman
->>>>>>> 9b191812e69e10ab79c1018f72bb488424c6f522
 plugins:
   - jekyll-feed
 
