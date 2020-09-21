@@ -30,7 +30,7 @@ twitter_username: nicosalvadore
 github_username:  nicosalvadore
 
 # Build settings
-theme: minima
+theme: cayman
 plugins:
   - jekyll-feed
 
