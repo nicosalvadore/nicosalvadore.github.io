@@ -73,6 +73,7 @@ Below is the first part of the playbook :
 
 Now the first task that is used to get the OAuth token :
 
+    {% raw %}
     - name: Authenticating to Graph API.
       uri:
         url: "https://login.microsoftonline.com/{{ graphapi_tenantid }}/oauth2/v2.0/token"
@@ -87,6 +88,7 @@ Now the first task that is used to get the OAuth token :
         headers:
           Content-Type: application/x-www-form-urlencoded
       register: auth
+      {% endraw %}
 
 
 We send a POST request to the OAuth HTTP endpoint including :
@@ -96,6 +98,7 @@ We send a POST request to the OAuth HTTP endpoint including :
 
 Then comes the task used to gather the initially needed data, in this example we simply ask for the list of users in this Azure/M365 tenant.
 
+    {% raw %}
     - name: Gathering users from AAD.
       uri:
         url: https://graph.microsoft.com/v1.0/users?$select=userPrincipalName,assignedLicenses
@@ -103,6 +106,7 @@ Then comes the task used to gather the initially needed data, in this example we
         headers:
           Authorization: "Bearer {{ auth.json.access_token }}"
       register: response
+    {% endraw %}
 
 In this second task we use the `uri` to make an HTTP GET request to MS Graph API. And as you can see in the path, we're asking for the list of users.
 
@@ -114,9 +118,11 @@ Do not forget to include the token we got back in the first task in the `Authori
 
 As a last optional step, let's display the json array returned with the help of the `debug` module :
 
+    {% raw %}
     - name: Displaying list of AAD users.
       debug:
         msg: "{{ response.json }}"
+    {% endraw %}
 
 And here is the array we got as a response :
 
@@ -150,6 +156,7 @@ You could now loop on a json-sub array in a following task to make some modifica
 
 Full Ansible play :
 
+    {% raw %}
     ---
     - name: Using Graph API to request users' data.
       hosts: localhost
@@ -186,3 +193,4 @@ Full Ansible play :
       - name: Displaying list of AAD users.
         debug:
           msg: "{{ response.json }}"
+    {% endraw %}
