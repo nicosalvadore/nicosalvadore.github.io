@@ -5,5 +5,5 @@ permalink: /about/
 ---
 
 Welcome to my blog !
-  You'll find here my thoughts and articles about my current work in systems engineering, network administration and probably some web development mainly in PHP.
+  You'll find here my thoughts and articles about my current work in systems & network engineering and maybe some development.
   Thanks for being here ! ;)
