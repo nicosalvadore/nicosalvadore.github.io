@@ -5,9 +5,8 @@ date:   2021-03-03 15:00:00 +0100
 tags: [ansible, systems, automation]
 excerpt_separator: <!--more-->
 ---
-# Use MS Graph APIs with Ansible
 
-## What was the use-case ?
+# What was the use-case ?
 I had this need at work to query some data from Azure/Microsoft365 and pass it to another internal department to be used in some kind of billing scenario.
 
 There are many ways to get data from the Cloud (with a capital C) in general. You can of course use the web interface for ponctual stuff... But who wants to login to a web portal, find the right menu and copy/paste the wanted information ? Not me for sure !
@@ -17,11 +16,11 @@ When you really put your work in production, developing some kind of automation 
 For whatever reason, Ansible might be the right choice for you, as it was for me. So follow along :)
 <!--more-->
 
-## Overview of what has to be done
+# Overview of what has to be done
 Ansible will query Azure with the Graph API, and you need to be authenticated to query your 365/Azure tenant. So we will create first an `App registration` into Azure Active Directory.
 Then we will create an Ansible playbook that will use the `uri` module to make HTTP requests to Azure and give back the data.
 
-## Azure Active Directory configuration
+# Azure Active Directory configuration
 First thing to do, sign in to the AAD admin center and open the menu `App registration`.
 
 ![AAD app registration](/assets/images/20210303_app-registrations-menu.png)
@@ -48,7 +47,7 @@ In addition, you should also take note of the following values, they should be d
 - `Application (client) ID`
 - `Directory (tenant) ID`
 
-## Ansible playbook
+# Ansible playbook
 To communicate with Azure via the MS Graph API, we first need to get a token from the MS OAuth endpoint. And then with this token we will be able to request our data.
 
 I'm not an expercienced user of this kind of authentication process, so maybe there is a more efficient method, let me know !
