@@ -3,6 +3,7 @@ layout: post
 title:  "Use MS Graph APIs with Ansible"
 date:   2021-03-03 15:00:00 +0100
 tags: [ansible, systems, automation]
+excerpt_separator: <!--more-->
 ---
 # Use MS Graph APIs with Ansible
 
@@ -14,6 +15,7 @@ There are many ways to get data from the Cloud (with a capital C) in general. Yo
 When you really put your work in production, developing some kind of automation is king.
 
 For whatever reason, Ansible might be the right choice for you, as it was for me. So follow along :)
+<!--more-->
 
 ## Overview of what has to be done
 Ansible will query Azure with the Graph API, and you need to be authenticated to query your 365/Azure tenant. So we will create first an `App registration` into Azure Active Directory.

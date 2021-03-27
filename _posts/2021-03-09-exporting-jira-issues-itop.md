@@ -3,6 +3,7 @@ layout: post
 title:  "Exporting Jira issues to iTop ITSM"
 date:   2021-03-19 18:00:00 +0100
 tags: [python, automation]
+excerpt_separator: <!--more-->
 ---
 # Exporting Jira issues to iTop ITSM
 
@@ -14,6 +15,7 @@ Only the CSV can easily be processed with code, and even then you don't have acc
 That was my dilemma, I needed to export our 700+ issues from a [SaaS Atlassian Jira](https://www.atlassian.com/fr/software/jira) instance to import them back to a new on-prem ITSM : [iTop](https://www.itophub.io/page/about-itop).
 
 *Thank you Python and REST APIs !*
+<!--more-->
 
 The code is available in [this github repo](https://github.com/nicosalvadore/jira2itop-tickets) for those who don't like to read. :)
 
