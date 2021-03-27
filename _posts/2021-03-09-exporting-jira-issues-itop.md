@@ -5,9 +5,8 @@ date:   2021-03-19 18:00:00 +0100
 tags: [python, automation]
 excerpt_separator: <!--more-->
 ---
-# Exporting Jira issues to iTop ITSM
 
-## The goal
+# The goal
 What if you have a backlog / history of hundreds or thousands of issues stored in your Jira server (Cloud SaaS or on-prem) and you'd like to export them ? You don't have a lot of choices by default : Word or PDF export, or a CSV.
 
 Only the CSV can easily be processed with code, and even then you don't have access to comments that were added in the issues, nor attachments (images, text files, pcap, etc...).
@@ -19,7 +18,7 @@ That was my dilemma, I needed to export our 700+ issues from a [SaaS Atlassian J
 
 The code is available in [this github repo](https://github.com/nicosalvadore/jira2itop-tickets) for those who don't like to read. :)
 
-## The plan
+# The plan
 So I've decided to write a short python script that :
 1. Connect to Jira and loop through my *Projects* to gather all issues and the needed attribues :
     - title
@@ -29,8 +28,8 @@ So I've decided to write a short python script that :
     - creation & closing date
 2. Connect to iTop to create new tickets with the data gathered on Jira.
 
-## The research
-### Jira
+# The research
+## Jira
 Mandatory RTFM first: [docs here.](https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/)
 
 We have to create a token to be able to call the API, so open your Atlassian account > Security > API tokens, [direct link.](https://id.atlassian.com/manage-profile/security/api-tokens)
@@ -60,7 +59,7 @@ print(my_issue.fields.description)
 
 The nice thing about this `jira` module is that you are given an object back. So there's no need to parse a json array and use brackets to get whatever value you need : `json.loads(response)["identifier"]` -> `reponse.identifier`. Pretty cool !
 
-### iTop
+## iTop
 What about iTop ? Docs [here.](https://www.itophub.io/wiki/page?id=2_7_0%3Aadvancedtopics%3Arest_json)
 
 It's a less "modern" API, but powerful enough for our needs. Each request is waiting for the object/resource impacted, and a json array with the attributes we want to add/update/delete.
@@ -76,7 +75,7 @@ This time, we need the python3 `requests` module to call the API. I've written 4
 
 The first 3 functions are in fact building the json arrays, which is a bit different for each action, and then they all call the `request()` function. Code is [here.](https://github.com/nicosalvadore/jira2itop-tickets/blob/main/itop.py)
 
-## The execution
+# The execution
 Here is again a link to the [github repo.](https://github.com/nicosalvadore/jira2itop-tickets)
 The code is commented so you should be able to read it quite easily.
 
