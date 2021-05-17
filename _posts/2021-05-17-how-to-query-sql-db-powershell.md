@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to query your SQL databases from powershell"
-date:   2021-03-03 15:00:00 +0100
+date:   2021-05-17 18:00:00 +0100
 tags: [systems, automation, powershell]
 excerpt_separator: <!--more-->
 ---
