@@ -66,7 +66,7 @@ Then I edited the default profile for LXC containers with `lxc profile edit defa
 
 All containers will inherit this profile by default and will thus be connected to my network, without any NAT managed by the Ubuntu VM.
 
-## It's not a backup if you've never try to restore it !
+## It's not a backup if you've never tried to restore it !
 
 Okay so now that I know how I will run the containers on the Ubuntu server, I should check how I can even import them. Maybe that should have been the first step...
 
